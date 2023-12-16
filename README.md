@@ -1,30 +1,19 @@
-# React + TypeScript + Vite
+# About
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a proof-of-concept of a client side router for Single Page Applications (SPAs).
+While working on other React projects, I realized that the de-facto router package that is used
+`react-router` is a little complex or their documentation for their version 6 is bad.
+I also encountered an issue with their child routes navigation.
+Considering this and also wanting to understand client-side routing better, I am creating
+this PoC that I plan to use in my personal projects without getting bogged down by the
+abstractions of 3rd party apps.
 
-Currently, two official plugins are available:
+> Note: I have used `react-router-v5` in the past and it was good enough to get the
+> job done without any issues. I only faced trouble with v6.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## How to run
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
 ```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+> npm install
+> npm run dev
+```
