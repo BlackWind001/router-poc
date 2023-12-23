@@ -1,3 +1,5 @@
+import routerEvent from "./routerEvent";
+
 type PathViewPair = {
   [key: string]: React.ReactNode
 }
@@ -23,11 +25,16 @@ class Router {
     this.pages[pagePath] = view;
   }
 
+  getView (pagePath: string) {
+    return this.pages[pagePath];
+  }
+
   goTo (path: string) {
     try {
       // Internal redirection
       if (path in this.pages) {
         history.pushState({}, '', path);
+        routerEvent.dispatchEvent(new Event('path-changed'));
         return;
       }
 

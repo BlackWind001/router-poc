@@ -1,25 +1,19 @@
-import React from "react";
 import "./App.css";
-import Router from "./router";
 import Home from "./pages/home";
 import About from "./pages/about";
+import { RouteSwitch } from "./router/RouteSwitchCase";
 
 function App() {
-  const [view, setView] = React.useState<React.ReactNode | null>(null);
-  React.useEffect(() => {
-    Router.register("/", <Home />);
-    Router.register("/about", <About />);
-  }, []);
-
-  React.useEffect(() => {
-    const { pathname: initialPath } = window.location;
-
-    if (initialPath in Router.pages) {
-      setView(Router.pages[initialPath]);
-    }
-  }, []);
-
-  return view;
+  return (
+    <>
+      <RouteSwitch
+        routeCases={[
+          { route: "/", view: <Home /> },
+          { route: "/about", view: <About /> },
+        ]}
+      />
+    </>
+  );
 }
 
 export default App;
